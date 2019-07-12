@@ -6,16 +6,17 @@ import 'package:flutter_app/model/test_bean_entity.dart';
 import 'package:toast/toast.dart';
 
 
-class testPage extends StatefulWidget {
+// ignore: must_be_immutable
+class TestPage extends StatefulWidget {
   String title = "init";
 
   @override
   State<StatefulWidget> createState() {
-    return new testState();
+    return new TestState();
   }
 }
 
-class testState extends State<testPage> {
+class TestState extends State<TestPage> {
   List<String> lists = [];
 
   @override
@@ -47,6 +48,7 @@ class testState extends State<testPage> {
     setState(() {
       widget.title = data.outNum.toString();
     });
+    print('lists.length:${lists.length}');
   }
 
   itemClick(int index)async {///item点击事件
@@ -75,7 +77,10 @@ class testState extends State<testPage> {
         },
         itemCount: lists.length,
       ),
-      floatingActionButton: FloatingActionButton(onPressed: press),
+      floatingActionButton: new FloatingActionButton(
+          onPressed: press,
+          child: new Icon(Icons.add),
+      ),
     );
   }
 
