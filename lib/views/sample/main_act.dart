@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/sample/home_drawer.dart';
+import 'package:flutter_app/views/sample/Infinite_listview.dart';
+import 'package:flutter_app/views/sample/test.dart';
 
 ///
 /// <pre>
 ///     author : Wp
 ///     e-mail : 1101313414@qq.com
 ///     time   : 2019/7/12 4:19 PM
-///     desc   :
+///     desc   : 主页面
 ///     version: 1.0
 /// </pre>
 ///
@@ -21,8 +23,8 @@ class MainAct extends StatefulWidget {
 
 class _MainActState extends State<MainAct> with SingleTickerProviderStateMixin {
 
-  TabController _tabController; //需要定义一个Controller`
-  List tabs = ["新闻", "历史", "图片"];
+  TabController _tabController; //需要定义一个Controller
+  List tabs = [ new TestPage(),new InfiniteListView(), new InfiniteListView()];
 
   @override
   void initState() {
@@ -67,7 +69,7 @@ class _MainActState extends State<MainAct> with SingleTickerProviderStateMixin {
         //创建3个Tab页
         return Container(
           alignment: Alignment.center,
-          child: Text(e, textScaleFactor: 5),
+          child: e,
         );
       }).toList(),
     );

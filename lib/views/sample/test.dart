@@ -26,7 +26,8 @@ class TestState extends State<TestPage> {
   }
 
   void setListView() {///初始化ListView数据
-    var lists1 = ['网络请求更新数据', 'Toast'];
+    var lists1 = ['网络请求更新数据', 'Toast','未定义','未定义','未定义','未定义'
+    ,'未定义','未定义','未定义','未定义','未定义','未定义','未定义','未定义','未定义'];
     setState(() {
       lists = lists1;
     });
@@ -44,11 +45,7 @@ class TestState extends State<TestPage> {
   }
 
   void press() async {///浮动按钮点击事件 - 异步 + 数据更新
-    var data = await downLoadData();
-    setState(() {
-      widget.title = data.outNum.toString();
-    });
-    print('lists.length:${lists.length}');
+
   }
 
   itemClick(int index)async {///item点击事件
@@ -68,9 +65,6 @@ class TestState extends State<TestPage> {
   Widget build(BuildContext context) {
     print('lists.length:${lists.length}');
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: ListView.builder(
         itemBuilder: (context, index) {
           return itemListView(index);
