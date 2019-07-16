@@ -9,24 +9,34 @@ import 'package:toast/toast.dart';
 // ignore: must_be_immutable
 class TestPage extends StatefulWidget {
   String title = "init";
+  String params = "";
 
   @override
   State<StatefulWidget> createState() {
-    return new TestState();
+    return new TestState(params);
+  }
+
+  TestPage(String params){
+    this.params = params;
   }
 }
 
 class TestState extends State<TestPage> {
   List<String> lists = [];
+  String params = "";
 
   @override
   void initState() {
     super.initState();
     setListView();
   }
+  TestState(String params){
+    this.params = params;
+  }
 
   void setListView() {///初始化ListView数据
-    var lists1 = ['网络请求更新数据', 'Toast','未定义','未定义','未定义','未定义'
+//    var text =  ModalRoute.of(context).settings.arguments;
+    var lists1 = ['网络请求更新数据', 'Toast','带参数返回上一页',params,'未定义','未定义'
     ,'未定义','未定义','未定义','未定义','未定义','未定义','未定义','未定义','未定义'];
     setState(() {
       lists = lists1;
@@ -57,6 +67,8 @@ class TestState extends State<TestPage> {
       });
     }else if(index == 1){
       Toast.show("我是个Toast", context);
+    }else if(index == 2){
+      Navigator.of(context).pop("我是返回参数");
     }
     print('itemClick：$index');
   }
@@ -65,6 +77,9 @@ class TestState extends State<TestPage> {
   Widget build(BuildContext context) {
     print('lists.length:${lists.length}');
     return Scaffold(
+      appBar: AppBar(
+        title: Text("功能页面"),
+      ),
       body: ListView.builder(
         itemBuilder: (context, index) {
           return itemListView(index);

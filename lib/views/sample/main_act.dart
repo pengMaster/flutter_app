@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/views/sample/home_drawer.dart';
 import 'package:flutter_app/views/sample/Infinite_listview.dart';
 import 'package:flutter_app/views/sample/test.dart';
+import 'package:flutter_app/views/sample/multi_action.dart';
 
 ///
 /// <pre>
@@ -24,7 +25,7 @@ class MainAct extends StatefulWidget {
 class _MainActState extends State<MainAct> with SingleTickerProviderStateMixin {
 
   TabController _tabController; //需要定义一个Controller
-  List tabs = [ new TestPage(),new InfiniteListView(), new InfiniteListView()];
+  List tabs = [ new MultiAction(),new MultiAction(), new MultiAction()];
 
   @override
   void initState() {
