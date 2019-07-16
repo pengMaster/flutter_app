@@ -16,6 +16,8 @@ import 'package:flutter_app/views/sample/multi_action.dart';
 ///
 
 class MainAct extends StatefulWidget {
+
+
   @override
   State<StatefulWidget> createState() {
     return _MainActState();
@@ -24,35 +26,36 @@ class MainAct extends StatefulWidget {
 
 class _MainActState extends State<MainAct> with SingleTickerProviderStateMixin {
 
-  TabController _tabController; //需要定义一个Controller
-  List tabs = [ new MultiAction(),new MultiAction(), new MultiAction()];
+  var _pageList = new List<StatefulWidget>();
+  int _currentIndex = 0;
+
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: tabs.length, vsync: this);
-    _tabController.addListener(() {
-      setState(() {});
-    });
+    _pageList.add(MultiAction());
+    _pageList.add(MultiAction());
+    _pageList.add(MultiAction());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),//顶部标题栏
-      drawer: new HomeDrawer(),//抽屉
-      body: _tabBarView(),//内容切换区域
-      bottomNavigationBar: _bottomNavigationBar()//底部导航栏
-    );
+        appBar: _appBar(), //顶部标题栏
+        drawer: new HomeDrawer(), //抽屉
+        body: _tabBarView(), //内容切换区域
+        bottomNavigationBar: _bottomNavigationBar() //底部导航栏
+        );
   }
 
   void _onItemTapped(int index) {
     setState(() {
-      _tabController.index = index;
+      _currentIndex = index;
     });
   }
 
-  Widget _appBar(){///顶部标题栏
+  Widget _appBar() {
+    ///顶部标题栏
     return AppBar(
       //导航栏
       title: Text("App Name"),
@@ -63,20 +66,13 @@ class _MainActState extends State<MainAct> with SingleTickerProviderStateMixin {
     );
   }
 
-  Widget _tabBarView(){///内容切换区域
-    return TabBarView(
-      controller: _tabController,
-      children: tabs.map((e) {
-        //创建3个Tab页
-        return Container(
-          alignment: Alignment.center,
-          child: e,
-        );
-      }).toList(),
-    );
+  Widget _tabBarView() {
+    return IndexedStack(index: _currentIndex, children: _pageList);
+
   }
 
-  Widget _bottomNavigationBar(){///底部导航栏
+  Widget _bottomNavigationBar() {
+    ///底部导航栏
     return BottomNavigationBar(
       // 底部导航
       items: <BottomNavigationBarItem>[
@@ -86,7 +82,7 @@ class _MainActState extends State<MainAct> with SingleTickerProviderStateMixin {
         BottomNavigationBarItem(
             icon: Icon(Icons.school), title: Text('School')),
       ],
-      currentIndex: _tabController.index,
+      currentIndex: _currentIndex,
       fixedColor: Colors.blue,
       onTap: _onItemTapped,
     );

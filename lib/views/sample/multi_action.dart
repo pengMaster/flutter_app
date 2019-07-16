@@ -15,6 +15,7 @@ import 'package:flutter_app/views/sample/Infinite_listview.dart';
 class MultiAction extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
+    print("init_MultiAction");
     return new _MultiAction();
   }
 }
