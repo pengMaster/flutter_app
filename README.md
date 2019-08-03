@@ -6,6 +6,7 @@
 - [快捷创建解析实体类工具](https://github.com/zhangruiyu/FlutterJsonBeanFactory)
 - [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/route_util.dart)
 
+
 功能记录
 
 - 添加启动页
@@ -21,6 +22,7 @@
   - 跳转关闭当前页面
   - 跳转不关闭当前页面
 - 去掉底部导航栏内容联动改为保持页面状态
+- 添加动态申请权限
 
 
 
