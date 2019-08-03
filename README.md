@@ -5,6 +5,7 @@
 - [网络请求 dio封装](https://github.com/pengMaster/flutter_app/blob/master/lib/api/net_utils.dart)
 - [快捷创建解析实体类工具](https://github.com/zhangruiyu/FlutterJsonBeanFactory)
 - [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/route_util.dart)
+- [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/views/sample/permission_act.dart)
 
 
 功能记录
