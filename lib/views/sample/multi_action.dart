@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/views/sample/test.dart';
 import 'package:flutter_app/utils/route_util.dart';
 import 'package:flutter_app/views/sample/Infinite_listview.dart';
+import 'package:flutter_app/views/sample/permission_act.dart';
 
 ///
 /// <pre>
@@ -42,6 +43,13 @@ class _MultiAction extends State<MultiAction> {
         children: <Widget>[Icon(Icons.ac_unit), Text("页面值传递")],
       ),
     ),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[Icon(Icons.account_balance), Text("动态申请权限")],
+      ),
+    ),
   ];
 
   @override
@@ -74,6 +82,8 @@ class _MultiAction extends State<MultiAction> {
       startActivity(context, new TestPage("我是页面传过来的参数"));
     }else if(index == 2){
       startActivity(context, new InfiniteListView());
+    }else if(index == 3){
+      startActivity(context, new PermissionAct());
     }
   }
 
@@ -99,6 +109,13 @@ class _MultiAction extends State<MultiAction> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[Icon(Icons.ac_unit), Text("分页ListView")],
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[Icon(Icons.ac_unit), Text("权限动态申请")],
         ),
       ),
     ];
