@@ -7,7 +7,6 @@
 - [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/route_util.dart)
 - [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/views/sample/permission_act.dart)
 
-
 功能记录
 
 - 添加启动页
