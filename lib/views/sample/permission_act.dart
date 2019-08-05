@@ -11,6 +11,7 @@ import 'package:permission_handler/permission_handler.dart';
 /// </pre>
 ///
 class PermissionAct extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return new _PermissionAct();
@@ -18,7 +19,6 @@ class PermissionAct extends StatefulWidget {
 }
 
 class _PermissionAct extends State<PermissionAct> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +33,11 @@ class _PermissionAct extends State<PermissionAct> {
       ),
     );
   }
-  ///申请权限
-  void onClickPermission() async{
-    print("onClickPermission");
-    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.camera]);
 
+  ///申请权限
+  void onClickPermission() async {
+    print("onClickPermission");
+    Map<PermissionGroup, PermissionStatus> permissions =
+        await PermissionHandler().requestPermissions([PermissionGroup.camera]);
   }
 }
