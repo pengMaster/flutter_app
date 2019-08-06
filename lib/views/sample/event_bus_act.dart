@@ -45,7 +45,7 @@ class _EventBusAct extends State<EventBusAct> {
               Text(text),
               GestureDetector(
                 onTap: _onBind,
-                child: GradientButton("触发事件",180,40),
+                child: GradientButton("触发事件",464,88),
               )
             ],
           ),

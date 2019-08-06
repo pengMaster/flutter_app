@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/utils/flutter_screenutil.dart';
 
 ///
 /// <pre>
@@ -33,8 +34,8 @@ class GradientButton extends StatelessWidget {
                   blurRadius: 4.0)
             ]),
         child: Container(
-          width: _width,
-          height: _height,
+          width: ScreenUtil.getInstance().setWidth(_width),
+          height: ScreenUtil.getInstance().setWidth(_height),
           alignment: Alignment.center,
           child: Text(
             _name,

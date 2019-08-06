@@ -3,6 +3,8 @@ import 'package:flutter_app/views/sample/main_act.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_app/utils/route_util.dart';
+import 'package:flutter_app/utils/flutter_screenutil.dart';
+
 
 class SplashScreenPage extends StatefulWidget {
   @override
@@ -23,6 +25,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   }
   @override
   Widget build(BuildContext context) {
+    ///屏幕适配方案 默认 width : 1080px , height:1920px , allowFontScaling:false
+    ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
     return Scaffold(
       body: Text(""),
     );

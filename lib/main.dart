@@ -3,7 +3,6 @@ import 'package:flutter_app/views/splash_screen.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/views/sample/test.dart';
 
 
 void main() async {
