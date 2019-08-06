@@ -6,6 +6,8 @@
 - [快捷创建解析实体类工具](https://github.com/zhangruiyu/FlutterJsonBeanFactory)
 - [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/route_util.dart)
 - [动态申请权限](https://github.com/pengMaster/flutter_app/blob/master/lib/views/sample/permission_act.dart)
+- [渐变按钮封装](https://github.com/pengMaster/flutter_app/blob/master/lib/widget/gradient_button.dart)
+- [事件总线封装(非粘性)](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/event_bus.dart)
 
 功能记录
 
@@ -25,6 +27,8 @@
 - 添加动态申请权限
 - 监听返回键，点击两下退出程序
 - 渐变按钮封装
+  - 支持宽高定义
+  - 支持文字定义
 - 事件总线封装(非粘性)
 
 
