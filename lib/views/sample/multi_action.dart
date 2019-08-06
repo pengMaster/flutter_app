@@ -3,6 +3,8 @@ import 'package:flutter_app/views/sample/test.dart';
 import 'package:flutter_app/utils/route_util.dart';
 import 'package:flutter_app/views/sample/Infinite_listview.dart';
 import 'package:flutter_app/views/sample/permission_act.dart';
+import 'package:flutter_app/views/sample/tab_view.dart';
+import 'package:flutter_app/views/sample/event_bus_act.dart';
 
 ///
 /// <pre>
@@ -50,6 +52,20 @@ class _MultiAction extends State<MultiAction> {
         children: <Widget>[Icon(Icons.account_balance), Text("动态申请权限")],
       ),
     ),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[Icon(Icons.battery_std), Text("导航栏切换")],
+      ),
+    ),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[Icon(Icons.gamepad), Text("事件总线")],
+      ),
+    ),
   ];
 
   @override
@@ -84,6 +100,10 @@ class _MultiAction extends State<MultiAction> {
       startActivity(context, new InfiniteListView());
     }else if(index == 3){
       startActivity(context, new PermissionAct());
+    }else if(index == 4){
+      startActivity(context, new TabView());
+    }else if(index == 5){
+      startActivity(context, new EventBusAct());
     }
   }
 
@@ -97,27 +117,6 @@ class _MultiAction extends State<MultiAction> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[Icon(Icons.threesixty), Text(result)],
           )),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[Icon(Icons.accessibility), Text("页面值传递")],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[Icon(Icons.ac_unit), Text("分页ListView")],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[Icon(Icons.ac_unit), Text("权限动态申请")],
-        ),
-      ),
     ];
     setState(() {
       lists = lists1;
