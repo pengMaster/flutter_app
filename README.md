@@ -24,8 +24,8 @@
   - 支持宽高定义
   - 支持文字定义
 - [事件总线封装(非粘性)](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/event_bus.dart)
-- 新增屏幕适配工具(https://github.com/pengMaster/flutter_app/blob/master/lib/utils/flutter_screenutil.dart)
-  - [页面使用](https://github.com/pengMaster/flutter_app/blob/master/lib/views/sample/gradient_button.dart)
+- [新增屏幕适配工具](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/flutter_screenutil.dart)
+  - [页面使用](https://github.com/pengMaster/flutter_app/blob/master/lib/widget/gradient_button.dart)
 
 
 
