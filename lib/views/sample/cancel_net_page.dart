@@ -18,23 +18,27 @@ class CancelNetPage extends BaseWidget {
 }
 
 class _CancelNetPage extends BaseWidgetState<CancelNetPage> {
+
   @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
+  Widget buildWidget(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
-        title: Text("取消网络请求"),
+        title: Text("取消网络加载"),
       ),
-      body: Text("ji"),
     );
   }
 
   @override
   void onCreate() async{
+    showLoading();
     var params = {"countOrderId": "260774849608302592"};
     var res = await netPost(api.items, params);
+    hideLoading();
     print(res.result);
   }
 
   @override
   void onDestroy() {}
+
+
 }

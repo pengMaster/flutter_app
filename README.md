@@ -26,9 +26,10 @@
 - [事件总线封装(非粘性)](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/event_bus.dart)
 - [新增屏幕适配工具](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/flutter_screenutil.dart)
   - [页面使用](https://github.com/pengMaster/flutter_app/blob/master/lib/widget/gradient_button.dart)
-- [BaseWidget封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/event_bus.dart)
+- [BaseWidget封装](https://github.com/pengMaster/flutter_app/blob/master/lib/base/base_stateful_widget.dart)
   - 统一管理页面网络请求，页面关闭取消掉本页面所有网络请求
   - 添加子类抽象方法 onCreate() onDestroy()
+  - 加载框统一封装 showLoading()  hideLoading()
 
 
 
