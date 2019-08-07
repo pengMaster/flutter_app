@@ -25,25 +25,25 @@ var dio = new Dio(BaseOptions(connectTimeout: 30000,headers: optHeader));
 
 class NetUtils {
 
-  static Future get(String url, [Map<String, dynamic> params]) async {
+  static Future get(String url, Map<String, dynamic> params , CancelToken cancelToken) async {
     var response;
 
     if (params != null) {
-      response = await dio.get(Api.BASE_URL+url, queryParameters: params);
+      response = await dio.get(Api.BASE_URL+url, queryParameters: params,cancelToken:cancelToken);
     } else {
       response = await dio.get(Api.BASE_URL+url);
     }
     return response.data;
   }
 
-  static  post(String url, Map<String, dynamic> params) async {
+  static  post(String url, Map<String, dynamic> params , CancelToken cancelToken) async {
 
     print("\n--------------------------------------------请求start--------------------------------------------\n\n");
     print("请求url：${Api.BASE_URL+url}\n");
     print("请求参数：$params\n");
     Response response;
     try {
-       response = await dio.post(Api.BASE_URL+url, data: params);
+       response = await dio.post(Api.BASE_URL+url, data: params ,cancelToken:cancelToken);
     } on DioError catch (e) {
       Response errorResponse;
       if (e.response != null) {
@@ -68,5 +68,25 @@ class NetUtils {
     }else{
       return new ResultData(response.data, false, int.parse(result.code));
     }
+  }
+
+
+  ///下载文件
+  downloadFile(urlPath, savePath) async {
+    Response response;
+    try {
+      response = await dio.download(urlPath, savePath,onReceiveProgress: (int count, int total){
+        //进度
+        print("$count $total");
+      });
+      print('downloadFile success---------${response.data}');
+    } on DioError catch (e) {
+      print('downloadFile error---------$e');
+    }
+    return response.data;
+  }
+  ///取消网络请求
+  void cancelRequests(CancelToken token) {
+    token.cancel();
   }
 }

@@ -7,10 +7,21 @@
 ///     version: 1.0
 /// </pre>
 ///
-class Api{
+class Api {
+
+  // 静态私有成员，没有初始化
+  static Api _instance;
+
+  // 静态、同步、私有访问点
+  static Api getInstance() {
+    if (_instance == null) {
+      _instance = new Api();
+    }
+    return _instance;
+  }
 
   static const String BASE_URL = 'http://dev.dingdian.xin/ddaigo-platform/';
 
   static const String getStockOrderNum = 'stockIn/getStockOrderNum';
-
+  String items = 'store/stockcount/result/items';
 }

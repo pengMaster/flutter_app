@@ -14,7 +14,7 @@
 - [路由封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/route_util.dart)
   - 添加动画 进入 从左到右 返回 从右到左
   - 带值跳转
-  - 接受上个页面返回值
+  - 接收上个页面返回值
   - 跳转关闭当前页面
   - 跳转不关闭当前页面
 - 去掉底部导航栏内容联动改为保持页面状态
@@ -26,6 +26,9 @@
 - [事件总线封装(非粘性)](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/event_bus.dart)
 - [新增屏幕适配工具](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/flutter_screenutil.dart)
   - [页面使用](https://github.com/pengMaster/flutter_app/blob/master/lib/widget/gradient_button.dart)
+- [BaseWidget封装](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/event_bus.dart)
+  - 统一管理页面网络请求，页面关闭取消掉本页面所有网络请求
+  - 添加子类抽象方法 onCreate() onDestroy()
 
 
 

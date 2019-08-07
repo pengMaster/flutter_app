@@ -5,6 +5,7 @@ import 'package:flutter_app/views/sample/Infinite_listview.dart';
 import 'package:flutter_app/views/sample/permission_act.dart';
 import 'package:flutter_app/views/sample/tab_view.dart';
 import 'package:flutter_app/views/sample/event_bus_act.dart';
+import 'package:flutter_app/views/sample/cancel_net_page.dart';
 
 ///
 /// <pre>
@@ -65,6 +66,13 @@ class _MultiAction extends State<MultiAction> {
         children: <Widget>[Icon(Icons.gamepad), Text("事件总线")],
       ),
     ),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[Icon(Icons.gamepad), Text("取消网络请求")],
+      ),
+    ),
   ];
 
   @override
@@ -103,6 +111,8 @@ class _MultiAction extends State<MultiAction> {
       startActivity(context, new TabView());
     }else if(index == 5){
       startActivity(context, new EventBusAct());
+    }else if(index == 6){
+      startActivity(context, new CancelNetPage());
     }
   }
 

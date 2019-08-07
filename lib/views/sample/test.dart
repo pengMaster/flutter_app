@@ -4,7 +4,7 @@ import 'package:flutter_app/api/net_utils.dart';
 import 'package:flutter_app/api/api.dart';
 import 'package:flutter_app/model/test_bean_entity.dart';
 import 'package:toast/toast.dart';
-
+import 'package:dio/dio.dart';
 
 // ignore: must_be_immutable
 class TestPage extends StatefulWidget {
@@ -47,7 +47,7 @@ class TestState extends State<TestPage> {
     final params = {
       'data': {'storeNo': 'S00000001'}
     };
-    var res = await NetUtils.post(Api.getStockOrderNum, params);//如何请求展示
+    var res = await NetUtils.post(Api.getStockOrderNum, params,new CancelToken());//如何请求展示
     if (res != null && res.result) {//如何解析数据展示
       TestBeanEntity bean = new TestBeanEntity.fromJson(res.data);
       return bean.data;
