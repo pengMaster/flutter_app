@@ -1,8 +1,31 @@
 # flutter_app
 
-脚手架
+```
+ 简单的脚手架，没有过度引用第三方库，都是基于基础组件进行封装。
+ 目前实际项目中能用到的东西都进行了二次封装，旨在于节省开发时间，
+ 达到快速开发的目的。
+```
 
-功能记录
+### 1.目录结构
+```
+├── android
+├── ios
+├── lib
+│   ├── api                 网络请求相关
+│   ├── base                base类封装
+│   ├── model               实体类
+│   ├── utils               工具类
+│   ├── widget              控件封装
+│   ├── views               页面
+│   ├── entity_factory.dart 一键json转实体记录
+│   ├── main.dart           入口
+├── pubspec.lock
+├── pubspec.yaml            配置文件
+
+
+```
+### 2.功能点封装
+
 - [网络请求 dio封装](https://github.com/pengMaster/flutter_app/blob/master/lib/api/net_utils.dart)
 - [快捷创建解析实体类工具](https://github.com/zhangruiyu/FlutterJsonBeanFactory)
 - 添加启动页
