@@ -27,13 +27,15 @@
 - [新增屏幕适配工具](https://github.com/pengMaster/flutter_app/blob/master/lib/utils/flutter_screenutil.dart)
   - [页面使用](https://github.com/pengMaster/flutter_app/blob/master/lib/widget/gradient_button.dart)
 - [BaseWidget封装](https://github.com/pengMaster/flutter_app/blob/master/lib/base/base_stateful_widget.dart)
+  - [辅助工具类类BaseFunction](https://github.com/pengMaster/flutter_app/blob/master/lib/base/base_function.dart)
   - 统一管理页面网络请求，页面关闭取消掉本页面所有网络请求
   - 添加子类抽象方法 onCreate() onDestroy()
   - 加载框统一封装 showLoading()  hideLoading()
   - 网络请求中进度框提供可关闭 不可关闭两种方案
   - 集成功能性控件，自页面无需引入直接使用
   - 页面跳转：1.跳转可接受返回值不关闭当前页面 2.跳转关闭当前页面
-  - 吐司
+  - 吐司 系统提示Toast
+  - listView加载零部件(实际在BaseFunction中)
 
 
 

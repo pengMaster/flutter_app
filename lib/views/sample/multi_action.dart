@@ -104,7 +104,7 @@ class _MultiAction extends State<MultiAction> {
     }else if(index == 1){
       startActivity(context, new TestPage("我是页面传过来的参数"));
     }else if(index == 2){
-      startActivity(context, new InfiniteListView());
+      startActivity(context, new InfiniteListView());//new ListViewPage(title: "sdag")
     }else if(index == 3){
       startActivity(context, new PermissionAct());
     }else if(index == 4){
