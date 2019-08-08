@@ -70,7 +70,7 @@ class _MultiAction extends State<MultiAction> {
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[Icon(Icons.gamepad), Text("取消网络请求")],
+        children: <Widget>[Icon(Icons.palette), Text("Base功能展示")],
       ),
     ),
   ];

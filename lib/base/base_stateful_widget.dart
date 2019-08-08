@@ -4,6 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter_app/api/api.dart';
 import 'package:flutter_app/api/result_data.dart';
 import 'package:flutter_app/utils/flutter_screenutil.dart';
+import 'package:flutter_app/base/base_function.dart';
+import 'package:flutter_app/utils/route_util.dart';
+import 'package:toast/toast.dart';
 
 ///
 /// <pre>
@@ -30,22 +33,28 @@ abstract class BaseWidget extends StatefulWidget {
   }
 }
 
-abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
+abstract class BaseWidgetState<T extends BaseWidget> extends State<T>
+    with BaseFunction {
+
   ///取消网络请求
   CancelToken cancelToken;
 
-  ///获取请求链接
+  ///获取请求链接 - 此处暴露方便子类调用
   Api api = Api.getInstance();
 
   ///进度条是否显示
   bool isShowLoading = false;
+
+  ///进度条是否可关闭
+  bool isLoadingCanClose = false;
 
   ///页面是否存活
   bool isLiveActivity = false;
 
   ///更新页面状态
   State state;
-  
+
+  ///屏幕适配工具
   ScreenUtil screenUtil = ScreenUtil.getInstance();
 
   @override
@@ -67,11 +76,14 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        buildWidget(context),
-        loadingWidget(),
-      ],
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Stack(
+        children: <Widget>[
+          buildWidget(context),
+          loadingWidget(isShowLoading,screenUtil),
+        ],
+      ),
     );
   }
 
@@ -90,10 +102,11 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
   }
 
   ///显示加载提示框
-  void showLoading() {
+  void showLoading({bool isLoadingClose = false}) {
     if (null != state && isLiveActivity) {
       state.setState(() {
         isShowLoading = true;
+        isLoadingCanClose = isLoadingClose;
       });
     }
   }
@@ -107,7 +120,22 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
     }
   }
 
-  ///获取页面名称
+  ///跳转页面 动画左右 可接受返回参数 不关闭当前页面
+  startAct(Widget routePage) {
+    return startActivity(context,routePage);
+  }
+
+  ///跳转页面 动画左右 关闭当前页面
+  startActFinish(Widget routePage){
+     startActivityFinish(context,routePage);
+  }
+
+  ///吐司
+  void showToast(String text){
+    Toast.show(text, context);
+  }
+
+  ///获取页面名称 - 用于设置tag
   String getClassName() {
     if (context == null) {
       return null;
@@ -120,32 +148,17 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
     return className;
   }
 
-  ///加载进度框Widget
-  Widget loadingWidget() {
-    return Visibility(
-      visible: isShowLoading,
-      child: Container(
-        //错误页面中心可以自己调整
-        padding: EdgeInsets.fromLTRB(0, 0, 0, 100),
-        color: Colors.black12,
-        width: double.infinity,
-        height: double.infinity,
-        alignment: Alignment.center,
-        child: Container(
-          width: screenUtil.setWidth(300),
-          height: screenUtil.setHeight(300),
-          alignment: Alignment.center,
-          color: Color(0xa3000000),
-          child:
-              // 圆形进度条
-              new CircularProgressIndicator(
-            strokeWidth: 4.0,
-            backgroundColor: Colors.blue,
-            // value: 0.2,
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.red),
-          ),
-        ),
-      ),
-    );
+  /// 监听返回键
+  Future<bool> _onBackPressed() async {
+    if (isShowLoading && isLiveActivity) {
+      ///点击返回键可关闭loading框
+      if(isLoadingCanClose){
+        state.setState(() {
+          isShowLoading = false;
+        });
+      }
+      return false;
+    }
+    return true;
   }
 }
