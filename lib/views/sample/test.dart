@@ -6,6 +6,7 @@ import 'package:flutter_app/model/test_bean_entity.dart';
 import 'package:toast/toast.dart';
 import 'package:dio/dio.dart';
 
+///接受返回值的列表页面
 // ignore: must_be_immutable
 class TestPage extends StatefulWidget {
   String title = "init";

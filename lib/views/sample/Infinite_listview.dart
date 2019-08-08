@@ -7,7 +7,7 @@ import 'package:flutter_app/base/base_stateful_widget.dart';
 ///     author : Wp
 ///     e-mail : 1101313414@qq.com
 ///     time   : 2019/7/12 6:00 PM
-///     desc   : 
+///     desc   : 上拉加载 下拉刷新
 ///     version: 1.0
 /// </pre>
 ///

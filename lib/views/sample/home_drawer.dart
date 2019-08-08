@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///     author : Wp
 ///     e-mail : 1101313414@qq.com
 ///     time   : 2019/7/12 4:33 PM
-///     desc   : 
+///     desc   : 首页抽屉
 ///     version: 1.0
 /// </pre>
 ///

@@ -7,7 +7,7 @@ import 'package:flutter_app/widget/gradient_button.dart';
 ///     author : Wp
 ///     e-mail : 1101313414@qq.com
 ///     time   : 2019/8/6 4:19 PM
-///     desc   :
+///     desc   : base组件演示
 ///     version: 1.0
 /// </pre>
 ///
@@ -32,6 +32,10 @@ class _CancelNetPage extends BaseWidgetState<CancelNetPage> {
             GestureDetector(
               onTap: _onClickCancelLoading,
               child: GradientButton("开启可关闭的加载框", 500, 120),
+            ),
+            GestureDetector(
+              onTap: _onClickLoading,
+              child: GradientButton("开启不关闭的加载框", 500, 120),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
@@ -61,6 +65,10 @@ class _CancelNetPage extends BaseWidgetState<CancelNetPage> {
 
   void _onClickCancelLoading() {
     showLoading(isLoadingClose: true);
+  }
+
+  void _onClickLoading() {
+    showLoading();
   }
 
   void _onClickNet() async {
