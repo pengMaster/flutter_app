@@ -33,9 +33,12 @@ class _CancelNetPage extends BaseWidgetState<CancelNetPage> {
               onTap: _onClickCancelLoading,
               child: GradientButton("开启可关闭的加载框", 500, 120),
             ),
-            GestureDetector(
-              onTap: _onClickLoading,
-              child: GradientButton("开启不关闭的加载框", 500, 120),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: GestureDetector(
+                onTap: _onClickLoading,
+                child: GradientButton("开启不关闭的加载框", 500, 120),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
